@@ -1,0 +1,6 @@
+{
+    "grievance-trends": [{ "date": "2024-01-01", "count": 10 }],
+    "department-distribution": [{ "department": "IT", "count": 5 }],
+    "grievances": [{ "id": 1, "status": "unsolved", "department": "IT" }]
+  }
+  

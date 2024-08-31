@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import darkTheme from './theme';
+
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
+import Footer from './components/Footer';
+import MainContent from './components/MainContent';
+
+import Overview from './pages/Overview';
+import Grievances from './pages/Grievances';
+import Departments from './pages/Departments';
+import Settings from './pages/Settings';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Router>
+        <Navbar />
+        <Sidebar />
+        <MainContent>
+          <Routes>
+            <Route path="/" element={<Overview />} />
+            <Route path="/grievances" element={<Grievances />} />
+            <Route path="/departments" element={<Departments />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </MainContent>
+        <Footer />
+      </Router>
+    </ThemeProvider>
   );
 }
 
